@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator ni steven</title>
+<!-- colors #1A4D2E #4F6F52 #F5EFE6 -->
+    <style>
+    body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1A4D2E;
+    /* background: linear-gradient(180deg, #fffbca 0%, #DEFFF7 100%); */
+}    
+
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        color: #1A4D2E;
+}
+
+
+    .num_button{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #4F6F52;
+    padding: 14px;
+    width: 50px;
+    height: 40px;
+    margin: 3px;
+    font-size: 15px;
+}
+    
+    .container {
+        justify-content: center;
+        background-color: #F5EFE6;
+}
+
+    #result{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(126, 126, 126);
+    height: 50px;
+    width: 200px;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 2px;
+    margin-top: 5px;
+    margin-left: 5px;   
+    margin-bottom: 5px;
+    border: 2px solid #4F6F52;
+
+}
+    
+    .table {
+        margin: auto;
+        border: 1px solid rgb(126, 126, 126);
+        background-color: #F5EFE6;
+        /* background-color: rgba(0, 0, 0, 0.030); */
+}
+    #times{
+        color: #1A4D2E;
+    }
+@media (min-width: 600px){
+    h1 {
+        font-size: 30px;
+    }
+    #result{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(126, 126, 126);
+    height: 100px;
+    width: 500px;
+    font-size: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 2px;
+    margin-top: 15px;
+    margin-left: 15px;   
+    margin-bottom: 15px;
+    border: 2px solid #4F6F52;
+
+}
+    .num_button{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #4F6F52;
+    padding: 14px;
+    width: 100px;
+    height: 90px;
+    margin: 5px;
+    font-size: 24px;
+}
+
+}
+@media (min-width: 900px){
+    h1 {
+        font-size: 30px;
+    }
+    #result{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(126, 126, 126);
+    height: 100px;
+    width: 500px;
+    font-size: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 2px;
+    margin-top: 15px;
+    margin-left: 15px;   
+    margin-bottom: 15px;
+    border: 2px solid #4F6F52;
+
+}
+    .num_button{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #4F6F52;
+    padding: 14px;
+    width: 100px;
+    height: 90px;
+    margin: 5px;
+    font-size: 24px;
+}
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td colspan="4"><h1 aria-colspan="4" id="calcu-title">Calculator</h1><input type="text" id="result" disabled class="screen"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="num_button" value="C" onclick="clearInput()" id="clear"></td>
+                <td><input type="button" class="num_button" value="del" onclick="delclearInput()" id="del"></td>
+                <td><input type="button" class="num_button" value="/" onclick="divide()" id="divide"></td>
+                <td><input type="button" class="num_button" value="x" onclick="times()" id="times"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="num_button" value="7" onclick="appendNumber(7)">
+                </td>
+                <td><input type="button" class="num_button" value="8" onclick="appendNumber(8)">
+                </td>
+                <td><input type="button" class="num_button" value="9" onclick="appendNumber(9)">
+                </td>
+                <td><input type="button" class="num_button" value="-" onclick="minus()" id="minus">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" class="num_button" value="4" onclick="appendNumber(4)">
+                </td>
+                <td><input type="button" class="num_button" value="5" onclick="appendNumber(5)">
+                </td>
+                <td><input type="button" class="num_button" value="6" onclick="appendNumber(6)">
+                <td><input type="button" class="num_button" value="+" onclick="add()" id="plus"></td>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" class="num_button" value="1" onclick="appendNumber(1)"></td>
+                <td><input type="button" class="num_button" value="2" onclick="appendNumber(2)"></td>
+                <td><input type="button" class="num_button" value="3"onclick="appendNumber(3)"></td>
+                <td><input type="button" class="num_button" value="ans"onclick="ans()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="num_button" value="00" onclick="appendNumber('00')" id="doublezero"></td>
+                <td><input type="button" class="num_button" value="0" onclick="appendNumber(0)"></td>
+                <td><input type="button" class="num_button" value="." onclick="appendNumber('.')"  id="dot"></td>
+                <td><input type="button" class="num_button" value="=" onclick="calculate()" id="equals"></td>
+
+            </tr>
+        </table>
+    </div>
+    <script>
+        let currentInput='';
+        let currentOperator='';
+        let latest_answer = '';
+        
+        function appendNumber(number) {
+            currentInput+=number;
+            document.getElementById('result').value=currentInput;
+        }
+        function add() {
+            currentOperator="+";
+            currentInput+=currentOperator;
+            document.getElementById('result').value=currentInput;
+        }
+        function times() {
+            currentOperator="*";
+            currentInput+=currentOperator;
+            document.getElementById('result').value=currentInput;
+        }
+        function divide() {
+            currentOperator="/";
+            currentInput+=currentOperator;
+            document.getElementById('result').value=currentInput;
+        }
+        function minus() {
+            currentOperator="-";
+            currentInput+=currentOperator;
+            document.getElementById('result').value=currentInput;
+        }
+        function calculate() {
+            const result=eval(currentInput);
+            document.getElementById('result').value=result;
+            currentInput=result.toString();
+            currentOperator='';
+            latest_answer = result;
+        }
+        function clearInput(){
+            currentInput='';
+            currentOperator='';
+            document.getElementById('result').value='';
+        }
+        function delclearInput(){
+            currentInput = currentInput.slice(0, -1);
+            document.getElementById('result').value = currentInput;
+        }
+        function ans(){
+            currentInput += latest_answer;
+            document.getElementById('result').value= currentInput;
+
+        }
+        </script>
+</body>
+</html>
